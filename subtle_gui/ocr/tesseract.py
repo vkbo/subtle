@@ -53,7 +53,6 @@ TXT_REPLACE = {
 
 RX_REPLACE = {
     "all": [
-        # (re.compile(r"^(-\s)[\w]", re.UNICODE), "-"),
         (re.compile(r"^(\.{2})[\s\w]", re.UNICODE), "..."),
         (re.compile(r"^(\.{3}\s)\w", re.UNICODE), "..."),
         # Wrong capitalisation in the middle of words
@@ -70,10 +69,6 @@ RX_REPLACE = {
         (re.compile(r"\b(fo)\b", re.UNICODE), "to"),
         (re.compile(r"\b(lf)\b", re.UNICODE), "If"),
         (re.compile(r"\b(l)\b", re.UNICODE), "I"),
-        # Wrong capitalisation at the start of words
-        (re.compile(r"(?<![.!?\)\]-])\s(K)now", re.UNICODE), "k"),
-        (re.compile(r"(?<![.!?\)\]-])\s(I)t+", re.UNICODE), "i"),
-        (re.compile(r"(?<![.!?\)\]-])\s(S)o+", re.UNICODE), "s"),
         # Missing apostrophe
         (re.compile(r"\b[D|d]id(nt)\b", re.UNICODE), "n't"),
         (re.compile(r"\b[T|t]hey(re)\b", re.UNICODE), "'re"),
