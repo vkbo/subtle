@@ -142,6 +142,8 @@ class GuiTextEditor(QWidget):
         bFmt.setLineHeight(120.0, 1)
         cursor.select(QTextCursor.SelectionType.Document)
         cursor.mergeBlockFormat(bFmt)
+        if document := self.textEdit.document():
+            document.clearUndoRedoStacks()
 
         self._block = False
 
