@@ -116,6 +116,12 @@ class GuiTextEditor(QWidget):
     #  Public Slots
     ##
 
+    @pyqtSlot()
+    def processNewMediaLoaded(self) -> None:
+        """Clear previous content."""
+        self._frame = None
+        self.textEdit.clear()
+
     @pyqtSlot(FrameBase)
     def setEditorText(self, frame: FrameBase) -> None:
         """Set the editor text."""
@@ -136,6 +142,8 @@ class GuiTextEditor(QWidget):
         bFmt.setLineHeight(120.0, 1)
         cursor.select(QTextCursor.SelectionType.Document)
         cursor.mergeBlockFormat(bFmt)
+        if document := self.textEdit.document():
+            document.clearUndoRedoStacks()
 
         self._block = False
 

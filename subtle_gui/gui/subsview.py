@@ -101,7 +101,7 @@ class GuiSubtitleView(QWidget):
             self.subEntries.clear()
             for frame in track.iterFrames():
                 item = QTreeWidgetItem()
-                item.setText(self.C_ID, str(self.subEntries.topLevelItemCount()))
+                item.setText(self.C_ID, str(self.subEntries.topLevelItemCount() + 1))
                 item.setText(self.C_TIME, formatTS(frame.start))
                 item.setText(self.C_LENGTH, f"{frame.length / 1000.0:.3f} s")
                 item.setData(self.C_DATA, self.D_INDEX, frame.index)
